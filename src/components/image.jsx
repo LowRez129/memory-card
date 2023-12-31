@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react";
-import GetObject from "./get_object";
+import requestObject from "./request_object";
 
 export default function ImageGenerate ({url}) {
-    const [object, setObject] = useState({});
-    const [pending, setPending] = useState(true);
-    
-    useEffect(() => {
-        GetObject(url, setObject, setPending);
-    }, [])
-
+    const {object, pending} = requestObject(url);
     if (pending == true) {return <div>Loading...</div>}
     return (
-        <div>
+        <div onClick={() => {console.log(object.name)}}>
             <img src={object.sprite} style={{background: 'white'}}/>
             <div>{object.name}</div>
         </div>
