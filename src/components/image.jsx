@@ -15,7 +15,7 @@ export default function ImageGenerate ({url, getter={}, setter={}}) {
                     return console.log(card, randomize);
                 }
             }
-           
+            
             setCard(previous => [...previous, object.name]);
         }}>
             <img src={object.sprite} style={{background: 'white'}}/>

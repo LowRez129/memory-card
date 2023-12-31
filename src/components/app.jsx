@@ -5,7 +5,6 @@ import shuffle from "../functions/shuffle";
 export default function AppGenerate () {
     const [card, setCard] = useState([]);
     const [randomize, setRandomize] = useState(true);
-    const [images, setImages] = useState([]);
 
     const url = [
         "https://pokeapi.co/api/v2/pokemon/psyduck",
@@ -16,14 +15,14 @@ export default function AppGenerate () {
     ];
 
     const array = [
-        <ImageGenerate  url={url[0]} getter={{card, randomize, images}} setter={{setCard, setRandomize, setImages}} />,
-        <ImageGenerate  url={url[1]} getter={{card, randomize, images}} setter={{setCard, setRandomize, setImages}} />,
+        <ImageGenerate  url={url[0]} getter={{card, randomize}} setter={{setCard, setRandomize}} />,
+        <ImageGenerate  url={url[1]} getter={{card, randomize}} setter={{setCard, setRandomize}} />,
     ];
 
     if (randomize == true) {
         return (
             <div style={{display: 'flex', flexDirection: 'row'}}>
-                {array}
+                {shuffle(array)}
             </div>
         );
     }
