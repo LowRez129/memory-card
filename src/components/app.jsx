@@ -1,12 +1,9 @@
 import ImageGenerate from "./image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import shuffle from "../functions/shuffle";
+import requestObject from "../functions/request_object";
 
 export default function AppGenerate () {
-    const [card, setCard] = useState([]);
-    const [randomize, setRandomize] = useState(true);
-    const [images, setImages] = useState([]);
-
     const url = [
         "https://pokeapi.co/api/v2/pokemon/psyduck",
         "https://pokeapi.co/api/v2/pokemon/sprigatito",
@@ -14,23 +11,21 @@ export default function AppGenerate () {
         "https://pokeapi.co/api/v2/pokemon/meowth",
         "https://pokeapi.co/api/v2/pokemon/ditto"
     ];
+    const request = [
+        requestObject(url[0]),
+        requestObject(url[1])
+    ]
 
-    useEffect(() => {
-        const array = [
-            <ImageGenerate  url={url[0]} getter={{card, randomize, images}} setter={{setCard, setRandomize, setImages}} id={1} />,
-            <ImageGenerate  url={url[1]} getter={{card, randomize, images}} setter={{setCard, setRandomize, setImages}} id={2} />,
-            <ImageGenerate  url={url[2]} getter={{card, randomize, images}} setter={{setCard, setRandomize, setImages}} id={3} />,
-            <ImageGenerate  url={url[3]} getter={{card, randomize, images}} setter={{setCard, setRandomize, setImages}} id={4} />,
-            <ImageGenerate  url={url[4]} getter={{card, randomize, images}} setter={{setCard, setRandomize, setImages}} id={5} />,
-        ];
-
-        setImages(shuffle(array));
-    }, [card])
+    const [card, setCard] = useState([]);
+    const [randomize, setRandomize] = useState(true);
+    const images = [
+        <ImageGenerate request={request[0]} getter={{card, randomize}} setter={{setCard, setRandomize}} id={1}/>
+    ];
 
     if (randomize == true) {
         return (
             <div style={{display: 'flex', flexDirection: 'row'}} > 
-                {images}
+               {images}
             </div>
         );
     }
