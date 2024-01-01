@@ -13,14 +13,17 @@ export default function AppGenerate () {
     ];
     const request = [
         requestObject(url[0]),
-        requestObject(url[1])
+        requestObject(url[1]),
+        requestObject(url[2])
     ]
 
     const [card, setCard] = useState([]);
     const [randomize, setRandomize] = useState(true);
-    const images = [
-        <ImageGenerate request={request[0]} getter={{card, randomize}} setter={{setCard, setRandomize}} id={1}/>
-    ];
+    const images = shuffle([
+        <ImageGenerate request={request[0]} getter={{card, randomize}} setter={{setCard, setRandomize}} id={1}/>,
+        <ImageGenerate request={request[1]} getter={{card, randomize}} setter={{setCard, setRandomize}} id={2}/>,
+        <ImageGenerate request={request[2]} getter={{card, randomize}} setter={{setCard, setRandomize}} id={3}/>
+    ]);
 
     if (randomize == true) {
         return (
