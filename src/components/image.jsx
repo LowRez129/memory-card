@@ -12,7 +12,7 @@ export default function ImageGenerate ({request={}, getter={}, setter={}, id}) {
             for (let i = 0; i < card.length; i++) {
                 if (card[i] == object.name) {
                     setRandomize(false);
-                    return console.log(card, randomize);
+                    return;
                 }
             }
                       
