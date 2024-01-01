@@ -1,6 +1,3 @@
-import requestObject from "../functions/request_object";
-import shuffle from "../functions/shuffle";
-
 export default function ImageGenerate ({request={}, getter={}, setter={}, id}) {
     const {object, pending} = request
     if (pending == true) {return <div id={id}>Loading...</div>}

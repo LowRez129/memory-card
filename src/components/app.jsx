@@ -1,5 +1,5 @@
 import ImageGenerate from "./image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import shuffle from "../functions/shuffle";
 import requestObject from "../functions/request_object";
 
