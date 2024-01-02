@@ -3,8 +3,8 @@ export default function ImageGenerate ({request={}, getter={}, setter={}, id}) {
     if (pending == true) {return <div id={id}>Loading...</div>}
     return (
         <div onClick={() => {
-            const {card, randomize} = getter;
-            const {setCard, setRandomize} = setter;
+            const {card} = getter;
+            const {setCard, setRandomize, setScore} = setter;
         
             for (let i = 0; i < card.length; i++) {
                 if (card[i] == object.name) {
@@ -14,6 +14,7 @@ export default function ImageGenerate ({request={}, getter={}, setter={}, id}) {
             }
                       
             setCard(previous => [...previous, object.name]);
+            setScore(previous => previous + 1);
 
         }} id={id}>
             <img src={object.sprite} style={{background: 'white'}}/>
