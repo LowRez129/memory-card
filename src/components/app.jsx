@@ -29,15 +29,11 @@ export default function AppGenerate () {
         if (score > highscore) {setHighscore(score)}
     }, [score])
 
-    if (randomize == true) {
-        return (
-            <div style={{display: 'flex', flexDirection: 'row'}} >
-               {images}
-            </div>
-        );
-    }
-
-    return (
+    return randomize ? (
+        <div style={{display: 'flex', flexDirection: 'row'}} >
+           {images}
+        </div>
+    ) : (
         <div>
             Score: {score} Highscore: {highscore} 
             <button onClick={() => {
@@ -46,6 +42,6 @@ export default function AppGenerate () {
                 setScore(0)
             }}>Retry?</button>
         </div>
-    );
+    )
 }
 
