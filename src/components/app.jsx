@@ -11,11 +11,14 @@ export default function AppGenerate () {
         requestObject("https://pokeapi.co/api/v2/pokemon/meowth"),
         requestObject("https://pokeapi.co/api/v2/pokemon/ditto")
     ]
-
     const [card, setCard] = useState([]);
     const [randomize, setRandomize] = useState(true);
     const [score, setScore] = useState(0);
     const [highscore, setHighscore] = useState(0);
+
+    const clickHandler = () = {
+        
+    }
     const images = shuffle([
         <ImageGenerate request={request[0]} getter={{card}} setter={{setCard, setRandomize, setScore}} id={1}/>,
         <ImageGenerate request={request[1]} getter={{card}} setter={{setCard, setRandomize, setScore}} id={2}/>,
