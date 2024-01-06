@@ -28,11 +28,11 @@ export default function AppGenerate () {
         setScore(previous => previous + 1);
     }
     const images = shuffle([
-        <ImageGenerate request={request[0]} onClick={() => clickHandler(clickHandler)} key={1}/>,
-        <ImageGenerate request={request[1]} onClick={() => clickHandler(clickHandler)} key={2}/>,
-        <ImageGenerate request={request[2]} onClick={() => clickHandler(clickHandler)} key={3}/>,
-        <ImageGenerate request={request[3]} onClick={() => clickHandler(clickHandler)} key={4}/>,
-        <ImageGenerate request={request[4]} onClick={() => clickHandler(clickHandler)} key={5}/>,
+        <ImageGenerate request={request[0]} onClick={clickHandler} key={1}/>,
+        <ImageGenerate request={request[1]} onClick={clickHandler} key={2}/>,
+        <ImageGenerate request={request[2]} onClick={clickHandler} key={3}/>,
+        <ImageGenerate request={request[3]} onClick={clickHandler} key={4}/>,
+        <ImageGenerate request={request[4]} onClick={clickHandler} key={5}/>,
     ]);
 
     useEffect(() => {
