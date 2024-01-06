@@ -16,15 +16,23 @@ export default function AppGenerate () {
     const [score, setScore] = useState(0);
     const [highscore, setHighscore] = useState(0);
 
-    const clickHandler = () = {
-        
+    const clickHandler = (name) => {
+        for (let i = 0; i < card.length; i++) {
+            if (card[i] == name) {
+                setRandomize(false);
+                return;
+            }
+        }
+                    
+        setCard(previous => [...previous, name]);
+        setScore(previous => previous + 1);
     }
     const images = shuffle([
-        <ImageGenerate request={request[0]} getter={{card}} setter={{setCard, setRandomize, setScore}} id={1}/>,
-        <ImageGenerate request={request[1]} getter={{card}} setter={{setCard, setRandomize, setScore}} id={2}/>,
-        <ImageGenerate request={request[2]} getter={{card}} setter={{setCard, setRandomize, setScore}} id={3}/>,
-        <ImageGenerate request={request[3]} getter={{card}} setter={{setCard, setRandomize, setScore}} id={4}/>,
-        <ImageGenerate request={request[4]} getter={{card}} setter={{setCard, setRandomize, setScore}} id={5}/>
+        <ImageGenerate request={request[0]} onClick={() => clickHandler(clickHandler)} key={1}/>,
+        <ImageGenerate request={request[1]} onClick={() => clickHandler(clickHandler)} key={2}/>,
+        <ImageGenerate request={request[2]} onClick={() => clickHandler(clickHandler)} key={3}/>,
+        <ImageGenerate request={request[3]} onClick={() => clickHandler(clickHandler)} key={4}/>,
+        <ImageGenerate request={request[4]} onClick={() => clickHandler(clickHandler)} key={5}/>,
     ]);
 
     useEffect(() => {
